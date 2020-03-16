@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>coronaStats</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+
+<body>
+    <div class="container">
+        <fieldset>
+            <form action="/" method="post">
+                <input type="submit" class="ghost-button" value="Update">
+            </form>
+        </fieldset>
+    </div>
+    <% if(confirmed != null && death != null && total != null && recovered != null){ %>
+        <p>there is <%= confirmed %> confirmed case and <%= death %> death case and <%= recovered %> recovereds</p>
+        <div id="pourcent"></div>
+    <canvas id="ratio"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <% if(confirmed != null && death != null && total != null && recovered != null ) { %>
+    <script>
+        var ctx = document.getElementById('ratio').getContext('2d');
+        var totalLive = <%= total %>;
+        var confirmed = <%= confirmed %>;
+        var death = <%= death %>;
+        console.log(totalLive);
+        console.log(confirmed);
+        console.log(death);
+        console.log(totalLive - (confirmed + death));
+        var recovered = <%= recovered %>;
+        var pourcent = (((confirmed + death)/totalLive)*100);
+        document.getElementById("pourcent").innerHTML = "<span>there is a total of "+pourcent+"% of the population infected</span><br><div class='w3 - light - grey'><div class='w3-container w3-red w3-center' style='width:"+pourcent+"%' > "+pourcent+" %</div></div>";
+        var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'doughnut',
+
+                // The data for our dataset
+                data: {
+                    labels: ['infected <%= confirmed %>', 'dead <%= death %>','recovered <%= recovered %>'],
+                    datasets: [{
+                        label: 'French',
+                        data: [confirmed, death, recovered],
+                        backgroundColor: ["rgb(237, 5, 5)","rgb(0, 0, 0)","rgb(76, 209, 19)"]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+    </script>
+    <% } %>
+    
+    <% } %>
+</body>
+
+</html>

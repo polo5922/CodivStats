@@ -1,0 +1,26 @@
+{
+    "name": "CovidStats",
+    "version": "0.0.1",
+    "description": "A basic apps to see covid-19 french statistic",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/polo5922/CovidStats.git"
+    },
+    "dependencies": {
+        "angular": "latest",
+        "angular-ui-router": "~0.2.11",
+        "body-parser": "^1.19.0",
+        "dat-gui": "latest",
+        "ejs": "^3.0.1",
+        "express": "^3.0.6",
+        "path": "latest",
+        "q": "latest",
+        "sequelize": "latest",
+        "tedious": "latest",
+        "unirest": "^0.6.0"
+    }
+}
