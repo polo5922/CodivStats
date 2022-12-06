@@ -13,10 +13,10 @@
     "dependencies": {
         "angular": "latest",
         "angular-ui-router": "~0.2.11",
-        "body-parser": "^1.19.0",
+        "body-parser": "^1.20.1",
         "dat-gui": "latest",
         "ejs": "^3.0.1",
-        "express": "^3.0.6",
+        "express": "^3.21.2",
         "path": "latest",
         "q": "latest",
         "sequelize": "latest",
